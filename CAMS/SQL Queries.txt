@@ -1,0 +1,39 @@
+Selecting Quiz:
+$sql ="select * from quiz where mail='{$username1}'";
+
+Selecting Questions:
+$sql ="select * from questions where quizid='{$qid}'";
+
+Permission for staff:
+$sql = "select * from " . $type1 . " where mail='{$username1}'";
+
+Inserting of Quiz scores:
+$sql ="insert into score(score,mail,quizid,totalscore) values('$score','$dbmail','$qid','$count');";
+
+Scores Leaderboard:
+$sql ="select * from score,quiz where score.mail='{$username1}' and score.quizid=quiz.quizid";
+
+Adding new Question:
+$sql = "insert into questions(qs,op1,op2,op3,answer,quizid) values('$qs','$op1','$op2','$op3','$ans','$qid');";
+
+Fetching quiz info:
+$sql = "select quizid from quiz where quizname='{$qname}'";
+
+Creating new Quiz:
+$sql1 = "insert into quiz(quizname,mail) values('$qname','$username1')";
+
+Deleting a Quiz:
+$sql1 = "delete from quiz where quizid='{$qid1}'";
+
+Student Scoreboard:
+$sql="select quizname,s.name,score,totalscore from student s,staff st,score sc,quiz q where q.quizid=sc.quizid and s.mail=sc.mail and q.mail=st.mail and q.mail='{$username1}' ORDER BY score DESC";
+
+Fetching Quiz info:
+$sql ="select * from quiz";
+
+Signing up a new Student:
+$sql = "insert into student (usn,name,mail,phno,dept,gender,DOB,pw) values('$usn1','$name1','$mail1','$phno1','$dept1','$gender1','$dob1','$password1')";
+
+Signing up a new Staff:
+$sql = "insert into staff (staffid,name,mail,phno,dept,gender,DOB,pw) values('$usn2','$name2','$mail2','$phno2','$dept2','$gender2','$dob2','$password2')";
+
